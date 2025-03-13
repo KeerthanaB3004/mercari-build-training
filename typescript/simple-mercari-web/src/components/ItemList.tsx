@@ -34,7 +34,9 @@ export const ItemList = ({ reload, onLoadCompleted }: Prop) => {
         return (
           <div key={item.id} className="ItemList">
             {/* TODO: Task 2: Show item images */}
-            <img src={PLACEHOLDER_IMAGE} />
+            <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${item.image_name}`} alt={item.name} onError={(e) => e.currentTarget.src = PLACEHOLDER_IMAGE} />
+
+
             <p>
               <span>Name: {item.name}</span>
               <br />
