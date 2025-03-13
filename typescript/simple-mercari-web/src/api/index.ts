@@ -1,3 +1,4 @@
+
 const SERVER_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:9000';
 
 export interface Item {
@@ -20,10 +21,6 @@ export const fetchItems = async (): Promise<ItemListResponse> => {
       Accept: 'application/json',
     },
   });
-
-  if (response.status >= 400) {
-    throw new Error('Failed to fetch items from the server');
-  }
   return response.json();
 };
 
@@ -43,10 +40,5 @@ export const postItem = async (input: CreateItemInput): Promise<Response> => {
     mode: 'cors',
     body: data,
   });
-
-  if (response.status >= 400) {
-    throw new Error('Failed to post item to the server');
-  }
-
   return response;
 };
